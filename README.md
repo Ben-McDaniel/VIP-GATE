@@ -21,4 +21,4 @@ VIP-GATE otherwise known as 'SID++' is a verilog processor with custom instructi
 - [@Ben McDaniel](https://github.com/Ben-McDaniel) 
 - [@V Brunkow](https://github.com/rhit-brunkocl)
 - [@Tyler Moore](https://github.com/rhit-mooretj)
-- [Ruby Stevens](https://github.com/AmityStevens)
+- [@Ruby Stevens](https://github.com/AmityStevens)

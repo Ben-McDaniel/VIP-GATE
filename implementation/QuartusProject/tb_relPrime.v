@@ -1,0 +1,55 @@
+module tb_relPrime();
+
+reg [15:0] inputWire;
+wire [15:0] outputWire;
+reg CLK;
+reg reset;
+
+CPU UUT(
+	.inputWire(inputWire),
+	.outputWire(outputWire),
+	.CLK(CLK),
+	.reset(reset)
+);
+
+parameter HALF_PERIOD = 50;
+parameter PERIOD = 2 * HALF_PERIOD;
+
+initial begin
+	reset = 0;
+	CLK = 1;
+	inputWire = 0;
+	forever begin
+		#HALF_PERIOD;
+		CLK = ~CLK;
+	end
+end
+
+initial begin
+	reset = 1;
+	#PERIOD;
+	
+	inputWire = 'h13b0;
+	reset = 0;
+	@(outputWire != 0);
+	#HALF_PERIOD;
+	$display("INPUT %d produced OUTPUT %d", inputWire, outputWire);
+
+	reset = 1;
+	#(2*PERIOD);
+	
+	inputWire = 30030;
+	reset = 0;
+	
+	#PERIOD;
+	
+	@(outputWire);
+	#PERIOD;
+	$display("INPUT %d produced OUTPUT %d", inputWire, outputWire);
+
+
+	$stop;
+	
+end
+
+endmodule

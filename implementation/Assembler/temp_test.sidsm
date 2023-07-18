@@ -1,0 +1,10 @@
+add 4, 0, 0
+addi 4, 4
+add 5, 0, 0
+addi 5, 10
+tst 4, 5
+bge 4
+addi 4, 1
+tst 0, 0
+beq -4
+

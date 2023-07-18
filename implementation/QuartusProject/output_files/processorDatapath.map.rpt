@@ -1,0 +1,1063 @@
+Analysis & Synthesis report for processorDatapath
+Mon May 22 19:14:06 2023
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. State Machine - |CPU|controlUnit:UTT|current_state
+ 10. User-Specified and Inferred Latches
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Registers Packed Into Inferred Megafunctions
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Source assignments for newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated
+ 17. Parameter Settings for User Entity Instance: newStep4:UUT|newStep3:UUT|memory:memoryModule
+ 18. Parameter Settings for User Entity Instance: controlUnit:UTT
+ 19. Parameter Settings for Inferred Entity Instance: newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0
+ 20. altsyncram Parameter Settings by Entity Instance
+ 21. Port Connectivity Checks: "controlUnit:UTT"
+ 22. Port Connectivity Checks: "newStep4:UUT|alu:PCAdder"
+ 23. Port Connectivity Checks: "newStep4:UUT|newStep3:UUT|memory:memoryModule"
+ 24. Post-Synthesis Netlist Statistics for Top Partition
+ 25. Elapsed Time Per Partition
+ 26. Analysis & Synthesis Messages
+ 27. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon May 22 19:14:06 2023       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                      ; processorDatapath                           ;
+; Top-level Entity Name              ; CPU                                         ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 1,298                                       ;
+;     Total combinational functions  ; 1,046                                       ;
+;     Dedicated logic registers      ; 555                                         ;
+; Total registers                    ; 555                                         ;
+; Total pins                         ; 34                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 524,288                                     ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Top-level entity name                                            ; CPU                ; processorDatapath  ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                                                  ;
++---------------------------------------------------+-----------------+-------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                  ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                                                                                    ; Library ;
++---------------------------------------------------+-----------------+-------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; CPU.v                                             ; yes             ; User Verilog HDL File                                 ; C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v                                             ;         ;
+; newStep4.v                                        ; yes             ; User Verilog HDL File                                 ; C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/newStep4.v                                        ;         ;
+; newStep3.v                                        ; yes             ; User Verilog HDL File                                 ; C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/newStep3.v                                        ;         ;
+; newStep2.v                                        ; yes             ; User Verilog HDL File                                 ; C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/newStep2.v                                        ;         ;
+; newStep1.v                                        ; yes             ; User Verilog HDL File                                 ; C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/newStep1.v                                        ;         ;
+; instructionRegister.v                             ; yes             ; User Verilog HDL File                                 ; C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/instructionRegister.v                             ;         ;
+; controlUnit.v                                     ; yes             ; User Verilog HDL File                                 ; C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v                                     ;         ;
+; register.v                                        ; yes             ; User Verilog HDL File                                 ; C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/register.v                                        ;         ;
+; registerFile.v                                    ; yes             ; User Verilog HDL File                                 ; C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/registerFile.v                                    ;         ;
+; memory.v                                          ; yes             ; User Verilog HDL File                                 ; C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/memory.v                                          ;         ;
+; comparator.v                                      ; yes             ; User Verilog HDL File                                 ; C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/comparator.v                                      ;         ;
+; alu.v                                             ; yes             ; User Verilog HDL File                                 ; C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v                                             ;         ;
+; immediateGenerator.v                              ; yes             ; User Verilog HDL File                                 ; C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/immediateGenerator.v                              ;         ;
+; memory.txt                                        ; yes             ; Auto-Found File                                       ; C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/memory.txt                                        ;         ;
+; altsyncram.tdf                                    ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf                                                                           ;         ;
+; stratix_ram_block.inc                             ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                                                    ;         ;
+; lpm_mux.inc                                       ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc                                                                              ;         ;
+; lpm_decode.inc                                    ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.inc                                                                           ;         ;
+; aglobal181.inc                                    ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc                                                                           ;         ;
+; a_rdenreg.inc                                     ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_rdenreg.inc                                                                            ;         ;
+; altrom.inc                                        ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc                                                                               ;         ;
+; altram.inc                                        ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc                                                                               ;         ;
+; altdpram.inc                                      ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc                                                                             ;         ;
+; db/altsyncram_g7a1.tdf                            ; yes             ; Auto-Generated Megafunction                           ; C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf                            ;         ;
+; db/processordatapath.ram0_memory_e411fb78.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/processordatapath.ram0_memory_e411fb78.hdl.mif ;         ;
+; db/decode_rsa.tdf                                 ; yes             ; Auto-Generated Megafunction                           ; C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/decode_rsa.tdf                                 ;         ;
+; db/decode_k8a.tdf                                 ; yes             ; Auto-Generated Megafunction                           ; C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/decode_k8a.tdf                                 ;         ;
+; db/mux_qob.tdf                                    ; yes             ; Auto-Generated Megafunction                           ; C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/mux_qob.tdf                                    ;         ;
++---------------------------------------------------+-----------------+-------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 1,298     ;
+;                                             ;           ;
+; Total combinational functions               ; 1046      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 541       ;
+;     -- 3 input functions                    ; 287       ;
+;     -- <=2 input functions                  ; 218       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 986       ;
+;     -- arithmetic mode                      ; 60        ;
+;                                             ;           ;
+; Total registers                             ; 555       ;
+;     -- Dedicated logic registers            ; 555       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 34        ;
+; Total memory bits                           ; 524288    ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; CLK~input ;
+; Maximum fan-out                             ; 619       ;
+; Total fan-out                               ; 6237      ;
+; Average fan-out                             ; 3.60      ;
++---------------------------------------------+-----------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                             ;
++-------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                           ; Entity Name         ; Library Name ;
++-------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |CPU                                            ; 1046 (1)            ; 555 (25)                  ; 524288      ; 0            ; 0       ; 0         ; 34   ; 0            ; |CPU                                                                                                                          ; CPU                 ; work         ;
+;    |controlUnit:UTT|                            ; 84 (84)             ; 23 (23)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|controlUnit:UTT                                                                                                          ; controlUnit         ; work         ;
+;    |newStep4:UUT|                               ; 961 (16)            ; 507 (18)                  ; 524288      ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|newStep4:UUT                                                                                                             ; newStep4            ; work         ;
+;       |comparator:comp|                         ; 48 (48)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|newStep4:UUT|comparator:comp                                                                                             ; comparator          ; work         ;
+;       |newStep3:UUT|                            ; 880 (48)            ; 473 (63)                  ; 524288      ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|newStep4:UUT|newStep3:UUT                                                                                                ; newStep3            ; work         ;
+;          |memory:memoryModule|                  ; 62 (54)             ; 18 (16)                   ; 524288      ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|newStep4:UUT|newStep3:UUT|memory:memoryModule                                                                            ; memory              ; work         ;
+;             |altsyncram:ram_rtl_0|              ; 8 (0)               ; 2 (0)                     ; 524288      ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0                                                       ; altsyncram          ; work         ;
+;                |altsyncram_g7a1:auto_generated| ; 8 (0)               ; 2 (2)                     ; 524288      ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated                        ; altsyncram_g7a1     ; work         ;
+;                   |decode_k8a:rden_decode|      ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|decode_k8a:rden_decode ; decode_k8a          ; work         ;
+;                   |decode_rsa:decode3|          ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|decode_rsa:decode3     ; decode_rsa          ; work         ;
+;          |newStep2:UUT|                         ; 754 (0)             ; 376 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT                                                                                   ; newStep2            ; work         ;
+;             |immediateGenerator:immGen|         ; 36 (36)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|immediateGenerator:immGen                                                         ; immediateGenerator  ; work         ;
+;             |instructionRegister:IR|            ; 29 (29)             ; 24 (24)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|instructionRegister:IR                                                            ; instructionRegister ; work         ;
+;             |newStep1:UUT|                      ; 673 (32)            ; 336 (32)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT                                                                      ; newStep1            ; work         ;
+;                |alu:ALU|                        ; 260 (260)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU                                                              ; alu                 ; work         ;
+;                |register:AReg|                  ; 16 (16)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|register:AReg                                                        ; register            ; work         ;
+;                |register:BReg|                  ; 16 (16)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|register:BReg                                                        ; register            ; work         ;
+;                |registerFile:regFile|           ; 349 (349)           ; 272 (272)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile                                                 ; registerFile        ; work         ;
+;             |register:ALUOutReg|                ; 16 (16)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|register:ALUOutReg                                                                ; register            ; work         ;
+;          |register:MDR|                         ; 16 (16)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|newStep4:UUT|newStep3:UUT|register:MDR                                                                                   ; register            ; work         ;
+;       |register:PC|                             ; 17 (17)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|newStep4:UUT|register:PC                                                                                                 ; register            ; work         ;
++-------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                                            ;
++--------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+---------+---------------------------------------------------+
+; Name                                                                                                         ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size    ; MIF                                               ;
++--------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+---------+---------------------------------------------------+
+; newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 65536        ; 16           ; --           ; --           ; 1048576 ; db/processorDatapath.ram0_memory_e411fb78.hdl.mif ;
++--------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+---------+---------------------------------------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |CPU|controlUnit:UTT|current_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ;
++---------------------------+---------------------+-------------------+---------------------+------------------------+-------------------------+------------------------+--------------------+---------------------------+-----------------------+--------------------+------------------+-----------------------+----------------------+-----------------------+----------------------+----------------------+-------------------+-----------------------+------------------------+--------------------+-------------------+----------------------+--------------------------+
+; Name                      ; current_state.FETCH ; current_state.LW3 ; current_state.JALR2 ; current_state.TSTWait2 ; current_state.FETCHWait ; current_state.LUIDUMMY ; current_state.LUI2 ; current_state.ALUWriteTwo ; current_state.TSTWait ; current_state.JALR ; current_state.SW ; current_state.LWWrite ; current_state.LWRead ; current_state.MemBase ; current_state.BWrite ; current_state.BPause ; current_state.TST ; current_state.ISelect ; current_state.ALUWrite ; current_state.RALU ; current_state.LUI ; current_state.DECODE ; current_state.resetState ;
++---------------------------+---------------------+-------------------+---------------------+------------------------+-------------------------+------------------------+--------------------+---------------------------+-----------------------+--------------------+------------------+-----------------------+----------------------+-----------------------+----------------------+----------------------+-------------------+-----------------------+------------------------+--------------------+-------------------+----------------------+--------------------------+
+; current_state.resetState  ; 0                   ; 0                 ; 0                   ; 0                      ; 0                       ; 0                      ; 0                  ; 0                         ; 0                     ; 0                  ; 0                ; 0                     ; 0                    ; 0                     ; 0                    ; 0                    ; 0                 ; 0                     ; 0                      ; 0                  ; 0                 ; 0                    ; 0                        ;
+; current_state.DECODE      ; 0                   ; 0                 ; 0                   ; 0                      ; 0                       ; 0                      ; 0                  ; 0                         ; 0                     ; 0                  ; 0                ; 0                     ; 0                    ; 0                     ; 0                    ; 0                    ; 0                 ; 0                     ; 0                      ; 0                  ; 0                 ; 1                    ; 1                        ;
+; current_state.LUI         ; 0                   ; 0                 ; 0                   ; 0                      ; 0                       ; 0                      ; 0                  ; 0                         ; 0                     ; 0                  ; 0                ; 0                     ; 0                    ; 0                     ; 0                    ; 0                    ; 0                 ; 0                     ; 0                      ; 0                  ; 1                 ; 0                    ; 1                        ;
+; current_state.RALU        ; 0                   ; 0                 ; 0                   ; 0                      ; 0                       ; 0                      ; 0                  ; 0                         ; 0                     ; 0                  ; 0                ; 0                     ; 0                    ; 0                     ; 0                    ; 0                    ; 0                 ; 0                     ; 0                      ; 1                  ; 0                 ; 0                    ; 1                        ;
+; current_state.ALUWrite    ; 0                   ; 0                 ; 0                   ; 0                      ; 0                       ; 0                      ; 0                  ; 0                         ; 0                     ; 0                  ; 0                ; 0                     ; 0                    ; 0                     ; 0                    ; 0                    ; 0                 ; 0                     ; 1                      ; 0                  ; 0                 ; 0                    ; 1                        ;
+; current_state.ISelect     ; 0                   ; 0                 ; 0                   ; 0                      ; 0                       ; 0                      ; 0                  ; 0                         ; 0                     ; 0                  ; 0                ; 0                     ; 0                    ; 0                     ; 0                    ; 0                    ; 0                 ; 1                     ; 0                      ; 0                  ; 0                 ; 0                    ; 1                        ;
+; current_state.TST         ; 0                   ; 0                 ; 0                   ; 0                      ; 0                       ; 0                      ; 0                  ; 0                         ; 0                     ; 0                  ; 0                ; 0                     ; 0                    ; 0                     ; 0                    ; 0                    ; 1                 ; 0                     ; 0                      ; 0                  ; 0                 ; 0                    ; 1                        ;
+; current_state.BPause      ; 0                   ; 0                 ; 0                   ; 0                      ; 0                       ; 0                      ; 0                  ; 0                         ; 0                     ; 0                  ; 0                ; 0                     ; 0                    ; 0                     ; 0                    ; 1                    ; 0                 ; 0                     ; 0                      ; 0                  ; 0                 ; 0                    ; 1                        ;
+; current_state.BWrite      ; 0                   ; 0                 ; 0                   ; 0                      ; 0                       ; 0                      ; 0                  ; 0                         ; 0                     ; 0                  ; 0                ; 0                     ; 0                    ; 0                     ; 1                    ; 0                    ; 0                 ; 0                     ; 0                      ; 0                  ; 0                 ; 0                    ; 1                        ;
+; current_state.MemBase     ; 0                   ; 0                 ; 0                   ; 0                      ; 0                       ; 0                      ; 0                  ; 0                         ; 0                     ; 0                  ; 0                ; 0                     ; 0                    ; 1                     ; 0                    ; 0                    ; 0                 ; 0                     ; 0                      ; 0                  ; 0                 ; 0                    ; 1                        ;
+; current_state.LWRead      ; 0                   ; 0                 ; 0                   ; 0                      ; 0                       ; 0                      ; 0                  ; 0                         ; 0                     ; 0                  ; 0                ; 0                     ; 1                    ; 0                     ; 0                    ; 0                    ; 0                 ; 0                     ; 0                      ; 0                  ; 0                 ; 0                    ; 1                        ;
+; current_state.LWWrite     ; 0                   ; 0                 ; 0                   ; 0                      ; 0                       ; 0                      ; 0                  ; 0                         ; 0                     ; 0                  ; 0                ; 1                     ; 0                    ; 0                     ; 0                    ; 0                    ; 0                 ; 0                     ; 0                      ; 0                  ; 0                 ; 0                    ; 1                        ;
+; current_state.SW          ; 0                   ; 0                 ; 0                   ; 0                      ; 0                       ; 0                      ; 0                  ; 0                         ; 0                     ; 0                  ; 1                ; 0                     ; 0                    ; 0                     ; 0                    ; 0                    ; 0                 ; 0                     ; 0                      ; 0                  ; 0                 ; 0                    ; 1                        ;
+; current_state.JALR        ; 0                   ; 0                 ; 0                   ; 0                      ; 0                       ; 0                      ; 0                  ; 0                         ; 0                     ; 1                  ; 0                ; 0                     ; 0                    ; 0                     ; 0                    ; 0                    ; 0                 ; 0                     ; 0                      ; 0                  ; 0                 ; 0                    ; 1                        ;
+; current_state.TSTWait     ; 0                   ; 0                 ; 0                   ; 0                      ; 0                       ; 0                      ; 0                  ; 0                         ; 1                     ; 0                  ; 0                ; 0                     ; 0                    ; 0                     ; 0                    ; 0                    ; 0                 ; 0                     ; 0                      ; 0                  ; 0                 ; 0                    ; 1                        ;
+; current_state.ALUWriteTwo ; 0                   ; 0                 ; 0                   ; 0                      ; 0                       ; 0                      ; 0                  ; 1                         ; 0                     ; 0                  ; 0                ; 0                     ; 0                    ; 0                     ; 0                    ; 0                    ; 0                 ; 0                     ; 0                      ; 0                  ; 0                 ; 0                    ; 1                        ;
+; current_state.LUI2        ; 0                   ; 0                 ; 0                   ; 0                      ; 0                       ; 0                      ; 1                  ; 0                         ; 0                     ; 0                  ; 0                ; 0                     ; 0                    ; 0                     ; 0                    ; 0                    ; 0                 ; 0                     ; 0                      ; 0                  ; 0                 ; 0                    ; 1                        ;
+; current_state.LUIDUMMY    ; 0                   ; 0                 ; 0                   ; 0                      ; 0                       ; 1                      ; 0                  ; 0                         ; 0                     ; 0                  ; 0                ; 0                     ; 0                    ; 0                     ; 0                    ; 0                    ; 0                 ; 0                     ; 0                      ; 0                  ; 0                 ; 0                    ; 1                        ;
+; current_state.FETCHWait   ; 0                   ; 0                 ; 0                   ; 0                      ; 1                       ; 0                      ; 0                  ; 0                         ; 0                     ; 0                  ; 0                ; 0                     ; 0                    ; 0                     ; 0                    ; 0                    ; 0                 ; 0                     ; 0                      ; 0                  ; 0                 ; 0                    ; 1                        ;
+; current_state.TSTWait2    ; 0                   ; 0                 ; 0                   ; 1                      ; 0                       ; 0                      ; 0                  ; 0                         ; 0                     ; 0                  ; 0                ; 0                     ; 0                    ; 0                     ; 0                    ; 0                    ; 0                 ; 0                     ; 0                      ; 0                  ; 0                 ; 0                    ; 1                        ;
+; current_state.JALR2       ; 0                   ; 0                 ; 1                   ; 0                      ; 0                       ; 0                      ; 0                  ; 0                         ; 0                     ; 0                  ; 0                ; 0                     ; 0                    ; 0                     ; 0                    ; 0                    ; 0                 ; 0                     ; 0                      ; 0                  ; 0                 ; 0                    ; 1                        ;
+; current_state.LW3         ; 0                   ; 1                 ; 0                   ; 0                      ; 0                       ; 0                      ; 0                  ; 0                         ; 0                     ; 0                  ; 0                ; 0                     ; 0                    ; 0                     ; 0                    ; 0                    ; 0                 ; 0                     ; 0                      ; 0                  ; 0                 ; 0                    ; 1                        ;
+; current_state.FETCH       ; 1                   ; 0                 ; 0                   ; 0                      ; 0                       ; 0                      ; 0                  ; 0                         ; 0                     ; 0                  ; 0                ; 0                     ; 0                    ; 0                     ; 0                    ; 0                    ; 0                 ; 0                     ; 0                      ; 0                  ; 0                 ; 0                    ; 1                        ;
++---------------------------+---------------------+-------------------+---------------------+------------------------+-------------------------+------------------------+--------------------+---------------------------+-----------------------+--------------------+------------------+-----------------------+----------------------+-----------------------+----------------------+----------------------+-------------------+-----------------------+------------------------+--------------------+-------------------+----------------------+--------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                                                                 ;
++------------------------------------------------------------------------+-------------------------------------------------------------------+------------------------+
+; Latch Name                                                             ; Latch Enable Signal                                               ; Free of Timing Hazards ;
++------------------------------------------------------------------------+-------------------------------------------------------------------+------------------------+
+; controlUnit:UTT|next_state.SW_711                                      ; controlUnit:UTT|Selector35                                        ; yes                    ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[15] ; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|Mux16 ; yes                    ;
+; controlUnit:UTT|memAddrSel                                             ; controlUnit:UTT|WideOr5                                           ; yes                    ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[14] ; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|Mux16 ; yes                    ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[13] ; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|Mux16 ; yes                    ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[12] ; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|Mux16 ; yes                    ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[11] ; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|Mux16 ; yes                    ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[10] ; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|Mux16 ; yes                    ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[9]  ; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|Mux16 ; yes                    ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[8]  ; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|Mux16 ; yes                    ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[7]  ; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|Mux16 ; yes                    ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[6]  ; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|Mux16 ; yes                    ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[5]  ; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|Mux16 ; yes                    ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[4]  ; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|Mux16 ; yes                    ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[3]  ; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|Mux16 ; yes                    ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[2]  ; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|Mux16 ; yes                    ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[1]  ; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|Mux16 ; yes                    ;
+; controlUnit:UTT|IRWrite                                                ; controlUnit:UTT|WideOr16                                          ; yes                    ;
+; controlUnit:UTT|next_state.MemBase_752                                 ; controlUnit:UTT|Selector35                                        ; yes                    ;
+; controlUnit:UTT|next_state.DECODE_858                                  ; controlUnit:UTT|Selector35                                        ; yes                    ;
+; controlUnit:UTT|next_state.BWrite_767                                  ; controlUnit:UTT|Selector35                                        ; yes                    ;
+; controlUnit:UTT|next_state.JALR2_601                                   ; controlUnit:UTT|Selector35                                        ; yes                    ;
+; controlUnit:UTT|ALUOp[0]                                               ; controlUnit:UTT|Selector57                                        ; yes                    ;
+; controlUnit:UTT|ALUOp[1]                                               ; controlUnit:UTT|Selector57                                        ; yes                    ;
+; controlUnit:UTT|ALUOp[2]                                               ; controlUnit:UTT|Selector57                                        ; yes                    ;
+; controlUnit:UTT|next_state.LWRead_739                                  ; controlUnit:UTT|Selector35                                        ; yes                    ;
+; controlUnit:UTT|next_state.LWWrite_724                                 ; controlUnit:UTT|Selector35                                        ; yes                    ;
+; controlUnit:UTT|next_state.TSTWait_681                                 ; controlUnit:UTT|Selector35                                        ; yes                    ;
+; controlUnit:UTT|next_state.LW3_588                                     ; controlUnit:UTT|Selector35                                        ; yes                    ;
+; controlUnit:UTT|next_state.FETCH_871                                   ; controlUnit:UTT|Selector35                                        ; yes                    ;
+; controlUnit:UTT|next_state.LUIDUMMY_640                                ; controlUnit:UTT|Selector35                                        ; yes                    ;
+; controlUnit:UTT|regDataWrite[1]                                        ; controlUnit:UTT|WideOr18                                          ; yes                    ;
+; controlUnit:UTT|regDataWrite[0]                                        ; controlUnit:UTT|WideOr18                                          ; yes                    ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[0]  ; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|Mux16 ; yes                    ;
+; newStep4:UUT|comparator:comp|dout[0]                                   ; GND                                                               ; yes                    ;
+; controlUnit:UTT|regDataWrite[2]                                        ; controlUnit:UTT|WideOr18                                          ; yes                    ;
+; controlUnit:UTT|next_state.ALUWrite_819                                ; controlUnit:UTT|Selector35                                        ; yes                    ;
+; controlUnit:UTT|next_state.JALR_696                                    ; controlUnit:UTT|Selector35                                        ; yes                    ;
+; controlUnit:UTT|next_state.LUI2_653                                    ; controlUnit:UTT|Selector35                                        ; yes                    ;
+; controlUnit:UTT|next_state.TSTWait2_614                                ; controlUnit:UTT|Selector35                                        ; yes                    ;
+; controlUnit:UTT|cmpRstReg[1]                                           ; controlUnit:UTT|current_state.TSTWait2                            ; yes                    ;
+; controlUnit:UTT|cmpRstReg[0]                                           ; controlUnit:UTT|current_state.TSTWait2                            ; yes                    ;
+; controlUnit:UTT|ALUSrcB                                                ; controlUnit:UTT|WideOr10                                          ; yes                    ;
+; controlUnit:UTT|ALUSrcA                                                ; controlUnit:UTT|WideOr7                                           ; yes                    ;
+; newStep4:UUT|comparator:comp|dout[1]                                   ; GND                                                               ; yes                    ;
+; controlUnit:UTT|next_state.LUI_845                                     ; controlUnit:UTT|Selector35                                        ; yes                    ;
+; controlUnit:UTT|next_state.ISelect_806                                 ; controlUnit:UTT|Selector35                                        ; yes                    ;
+; controlUnit:UTT|next_state.FETCHWait_627                               ; controlUnit:UTT|Selector35                                        ; yes                    ;
+; controlUnit:UTT|next_state.RALU_832                                    ; controlUnit:UTT|Selector35                                        ; yes                    ;
+; controlUnit:UTT|next_state.BPause_780                                  ; controlUnit:UTT|Selector35                                        ; yes                    ;
+; controlUnit:UTT|next_state.TST_793                                     ; controlUnit:UTT|Selector35                                        ; yes                    ;
+; controlUnit:UTT|next_state.ALUWriteTwo_666                             ; controlUnit:UTT|Selector35                                        ; yes                    ;
+; Number of user-specified and inferred latches = 52                     ;                                                                   ;                        ;
++------------------------------------------------------------------------+-------------------------------------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                                                ;
++--------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------+
+; Register name                                                                                                      ; Reason for Removal                                                                           ;
++--------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------+
+; newStep4:UUT|compOutExtended[2..15]                                                                                ; Stuck at GND due to stuck port data_in                                                       ;
+; newStep4:UUT|newStep3:UUT|memory:memoryModule|addr_reg[15]                                                         ; Stuck at GND due to stuck port data_in                                                       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|instructionRegister:IR|rdAddr[3]                                            ; Merged with newStep4:UUT|newStep3:UUT|newStep2:UUT|instructionRegister:IR|instructionOut[11] ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|instructionRegister:IR|rdAddr[2]                                            ; Merged with newStep4:UUT|newStep3:UUT|newStep2:UUT|instructionRegister:IR|instructionOut[10] ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|instructionRegister:IR|rdAddr[1]                                            ; Merged with newStep4:UUT|newStep3:UUT|newStep2:UUT|instructionRegister:IR|instructionOut[9]  ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|instructionRegister:IR|rdAddr[0]                                            ; Merged with newStep4:UUT|newStep3:UUT|newStep2:UUT|instructionRegister:IR|instructionOut[8]  ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[0][0]                           ; Stuck at GND due to stuck port data_in                                                       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[0][1]                           ; Stuck at GND due to stuck port data_in                                                       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[0][2]                           ; Stuck at GND due to stuck port data_in                                                       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[0][3]                           ; Stuck at GND due to stuck port data_in                                                       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[0][4]                           ; Stuck at GND due to stuck port data_in                                                       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[0][5]                           ; Stuck at GND due to stuck port data_in                                                       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[0][6]                           ; Stuck at GND due to stuck port data_in                                                       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[0][7]                           ; Stuck at GND due to stuck port data_in                                                       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[0][8]                           ; Stuck at GND due to stuck port data_in                                                       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[0][9]                           ; Stuck at GND due to stuck port data_in                                                       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[0][10]                          ; Stuck at GND due to stuck port data_in                                                       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[0][11]                          ; Stuck at GND due to stuck port data_in                                                       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[0][12]                          ; Stuck at GND due to stuck port data_in                                                       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[0][13]                          ; Stuck at GND due to stuck port data_in                                                       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[0][14]                          ; Stuck at GND due to stuck port data_in                                                       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[0][15]                          ; Stuck at GND due to stuck port data_in                                                       ;
+; controlUnit:UTT|current_state~4                                                                                    ; Lost fanout                                                                                  ;
+; controlUnit:UTT|current_state~5                                                                                    ; Lost fanout                                                                                  ;
+; controlUnit:UTT|current_state~6                                                                                    ; Lost fanout                                                                                  ;
+; controlUnit:UTT|current_state~7                                                                                    ; Lost fanout                                                                                  ;
+; controlUnit:UTT|current_state~8                                                                                    ; Lost fanout                                                                                  ;
+; newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|address_reg_a[2] ; Stuck at GND due to stuck port data_in                                                       ;
+; Total Number of Removed Registers = 41                                                                             ;                                                                                              ;
++--------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 555   ;
+; Number of registers using Synchronous Clear  ; 50    ;
+; Number of registers using Synchronous Load   ; 57    ;
+; Number of registers using Asynchronous Clear ; 23    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 344   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                                        ;
++-------------------------------------------------------------------------------------------+---------+
+; Inverted Register                                                                         ; Fan out ;
++-------------------------------------------------------------------------------------------+---------+
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[2][0]  ; 2       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[2][1]  ; 2       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[2][2]  ; 2       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[2][3]  ; 2       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[2][4]  ; 2       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[2][5]  ; 2       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[2][6]  ; 2       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[2][7]  ; 2       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[2][8]  ; 2       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[2][9]  ; 2       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[2][10] ; 2       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[2][11] ; 2       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[2][12] ; 2       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[2][13] ; 2       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[2][14] ; 2       ;
+; newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[2][15] ; 2       ;
+; Total number of inverted registers = 16                                                   ;         ;
++-------------------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                                                                   ;
++---------------------------------------------------------------+---------------------------------------------------------+------+
+; Register Name                                                 ; Megafunction                                            ; Type ;
++---------------------------------------------------------------+---------------------------------------------------------+------+
+; newStep4:UUT|newStep3:UUT|memory:memoryModule|addr_reg[0..14] ; newStep4:UUT|newStep3:UUT|memory:memoryModule|ram_rtl_0 ; RAM  ;
++---------------------------------------------------------------+---------------------------------------------------------+------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------+
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU|newStep4:UUT|register:PC|dout[10]                                                          ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|instructionRegister:IR|instructionOut[4]            ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[8][6]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[4][8]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[12][0]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[10][4]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[6][15]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[14][0]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[1][13]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[9][15]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[5][4]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[13][15] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[3][10]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[11][11] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[7][5]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[15][10] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|instructionRegister:IR|rs1Addr[0]                   ;
+; 8:1                ; 14 bits   ; 70 LEs        ; 42 LEs               ; 28 LEs                 ; Yes        ; |CPU|newStep4:UUT|newStep3:UUT|dataWrite[11]                                                    ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; Yes        ; |CPU|newStep4:UUT|newStep3:UUT|dataWrite[1]                                                     ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; Yes        ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|B[4]              ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; Yes        ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|A[13]             ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|instructionRegister:IR|rs0Addr[3]                   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile|reg_array[2][14]  ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|immediateGenerator:immGen|Mux0                      ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|immediateGenerator:immGen|dout[11]                  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |CPU|controlUnit:UTT|next_state.BWrite                                                          ;
+; 12:1               ; 4 bits    ; 32 LEs        ; 24 LEs               ; 8 LEs                  ; No         ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|Mux11                          ;
+; 12:1               ; 4 bits    ; 32 LEs        ; 24 LEs               ; 8 LEs                  ; No         ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|Mux6                           ;
+; 13:1               ; 2 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; No         ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|Mux12                          ;
+; 13:1               ; 2 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; No         ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|Mux3                           ;
+; 14:1               ; 2 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; No         ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|Mux15                          ;
+; 14:1               ; 2 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; No         ; |CPU|newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|Mux1                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                         ;
++---------------------------------+--------------------+------+------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                          ;
++---------------------------------+--------------------+------+------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: newStep4:UUT|newStep3:UUT|memory:memoryModule ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; DATA_WIDTH     ; 16    ; Signed Integer                                                    ;
+; ADDR_WIDTH     ; 16    ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: controlUnit:UTT ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; FETCH          ; 0     ; Signed Integer                      ;
+; DECODE         ; 1     ; Signed Integer                      ;
+; LUI            ; 2     ; Signed Integer                      ;
+; RALU           ; 3     ; Signed Integer                      ;
+; ALUWrite       ; 4     ; Signed Integer                      ;
+; ISelect        ; 5     ; Signed Integer                      ;
+; IALU           ; 6     ; Signed Integer                      ;
+; TST            ; 7     ; Signed Integer                      ;
+; BPause         ; 8     ; Signed Integer                      ;
+; BWrite         ; 9     ; Signed Integer                      ;
+; MemBase        ; 10    ; Signed Integer                      ;
+; LWRead         ; 11    ; Signed Integer                      ;
+; LWWrite        ; 12    ; Signed Integer                      ;
+; SW             ; 13    ; Signed Integer                      ;
+; JALR           ; 14    ; Signed Integer                      ;
+; TSTWait        ; 15    ; Signed Integer                      ;
+; ALUWriteTwo    ; 16    ; Signed Integer                      ;
+; LUI2           ; 17    ; Signed Integer                      ;
+; LUIDUMMY       ; 18    ; Signed Integer                      ;
+; FETCHWait      ; 19    ; Signed Integer                      ;
+; TSTWait2       ; 20    ; Signed Integer                      ;
+; JALR2          ; 21    ; Signed Integer                      ;
+; LW3            ; 22    ; Signed Integer                      ;
+; resetState     ; 23    ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0 ;
++------------------------------------+---------------------------------------------------+----------------------------+
+; Parameter Name                     ; Value                                             ; Type                       ;
++------------------------------------+---------------------------------------------------+----------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                                 ; Untyped                    ;
+; AUTO_CARRY_CHAINS                  ; ON                                                ; AUTO_CARRY                 ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                               ; IGNORE_CARRY               ;
+; AUTO_CASCADE_CHAINS                ; ON                                                ; AUTO_CASCADE               ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                               ; IGNORE_CASCADE             ;
+; WIDTH_BYTEENA                      ; 1                                                 ; Untyped                    ;
+; OPERATION_MODE                     ; SINGLE_PORT                                       ; Untyped                    ;
+; WIDTH_A                            ; 16                                                ; Untyped                    ;
+; WIDTHAD_A                          ; 16                                                ; Untyped                    ;
+; NUMWORDS_A                         ; 65536                                             ; Untyped                    ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                      ; Untyped                    ;
+; ADDRESS_ACLR_A                     ; NONE                                              ; Untyped                    ;
+; OUTDATA_ACLR_A                     ; NONE                                              ; Untyped                    ;
+; WRCONTROL_ACLR_A                   ; NONE                                              ; Untyped                    ;
+; INDATA_ACLR_A                      ; NONE                                              ; Untyped                    ;
+; BYTEENA_ACLR_A                     ; NONE                                              ; Untyped                    ;
+; WIDTH_B                            ; 1                                                 ; Untyped                    ;
+; WIDTHAD_B                          ; 1                                                 ; Untyped                    ;
+; NUMWORDS_B                         ; 1                                                 ; Untyped                    ;
+; INDATA_REG_B                       ; CLOCK1                                            ; Untyped                    ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                            ; Untyped                    ;
+; RDCONTROL_REG_B                    ; CLOCK1                                            ; Untyped                    ;
+; ADDRESS_REG_B                      ; CLOCK1                                            ; Untyped                    ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                      ; Untyped                    ;
+; BYTEENA_REG_B                      ; CLOCK1                                            ; Untyped                    ;
+; INDATA_ACLR_B                      ; NONE                                              ; Untyped                    ;
+; WRCONTROL_ACLR_B                   ; NONE                                              ; Untyped                    ;
+; ADDRESS_ACLR_B                     ; NONE                                              ; Untyped                    ;
+; OUTDATA_ACLR_B                     ; NONE                                              ; Untyped                    ;
+; RDCONTROL_ACLR_B                   ; NONE                                              ; Untyped                    ;
+; BYTEENA_ACLR_B                     ; NONE                                              ; Untyped                    ;
+; WIDTH_BYTEENA_A                    ; 1                                                 ; Untyped                    ;
+; WIDTH_BYTEENA_B                    ; 1                                                 ; Untyped                    ;
+; RAM_BLOCK_TYPE                     ; AUTO                                              ; Untyped                    ;
+; BYTE_SIZE                          ; 8                                                 ; Untyped                    ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                         ; Untyped                    ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                              ; Untyped                    ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                              ; Untyped                    ;
+; INIT_FILE                          ; db/processorDatapath.ram0_memory_e411fb78.hdl.mif ; Untyped                    ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                            ; Untyped                    ;
+; MAXIMUM_DEPTH                      ; 0                                                 ; Untyped                    ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                            ; Untyped                    ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                            ; Untyped                    ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                            ; Untyped                    ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                            ; Untyped                    ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                   ; Untyped                    ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                   ; Untyped                    ;
+; ENABLE_ECC                         ; FALSE                                             ; Untyped                    ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                             ; Untyped                    ;
+; WIDTH_ECCSTATUS                    ; 3                                                 ; Untyped                    ;
+; DEVICE_FAMILY                      ; Cyclone IV E                                      ; Untyped                    ;
+; CBXI_PARAMETER                     ; altsyncram_g7a1                                   ; Untyped                    ;
++------------------------------------+---------------------------------------------------+----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                               ;
++-------------------------------------------+--------------------------------------------------------------------+
+; Name                                      ; Value                                                              ;
++-------------------------------------------+--------------------------------------------------------------------+
+; Number of entity instances                ; 1                                                                  ;
+; Entity Instance                           ; newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0 ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                                        ;
+;     -- WIDTH_A                            ; 16                                                                 ;
+;     -- NUMWORDS_A                         ; 65536                                                              ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                       ;
+;     -- WIDTH_B                            ; 1                                                                  ;
+;     -- NUMWORDS_B                         ; 1                                                                  ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                             ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                       ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                               ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                          ;
++-------------------------------------------+--------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "controlUnit:UTT"                                                                          ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; memToReg   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; memAddrSet ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; Port Connectivity Checks: "newStep4:UUT|alu:PCAdder" ;
++----------+-------+----------+------------------------+
+; Port     ; Type  ; Severity ; Details                ;
++----------+-------+----------+------------------------+
+; A[15..2] ; Input ; Info     ; Stuck at GND           ;
+; A[1]     ; Input ; Info     ; Stuck at VCC           ;
+; A[0]     ; Input ; Info     ; Stuck at GND           ;
+; ALUOp    ; Input ; Info     ; Stuck at GND           ;
++----------+-------+----------+------------------------+
+
+
++---------------------------------------------------------------------------+
+; Port Connectivity Checks: "newStep4:UUT|newStep3:UUT|memory:memoryModule" ;
++----------+-------+----------+---------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                     ;
++----------+-------+----------+---------------------------------------------+
+; addr[15] ; Input ; Info     ; Stuck at GND                                ;
++----------+-------+----------+---------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 34                          ;
+; cycloneiii_ff         ; 555                         ;
+;     CLR               ; 23                          ;
+;     ENA               ; 324                         ;
+;     ENA SCLR          ; 18                          ;
+;     ENA SLD           ; 2                           ;
+;     SCLR SLD          ; 32                          ;
+;     SLD               ; 23                          ;
+;     plain             ; 133                         ;
+; cycloneiii_lcell_comb ; 1046                        ;
+;     arith             ; 60                          ;
+;         2 data inputs ; 15                          ;
+;         3 data inputs ; 45                          ;
+;     normal            ; 986                         ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 201                         ;
+;         3 data inputs ; 242                         ;
+;         4 data inputs ; 541                         ;
+; cycloneiii_ram_block  ; 64                          ;
+;                       ;                             ;
+; Max LUT depth         ; 10.00                       ;
+; Average LUT depth     ; 3.38                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:06     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Mon May 22 19:13:45 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ComputerArchitectureProcessor -c processorDatapath
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Warning (10261): Verilog HDL Event Control warning at tb_relPrime.v(34): Event Control contains a complex event expression File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/tb_relPrime.v Line: 34
+Info (12021): Found 1 design units, including 1 entities, in source file tb_relprime.v
+    Info (12023): Found entity 1: tb_relPrime File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/tb_relPrime.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file cpu.v
+    Info (12023): Found entity 1: CPU File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file newstep4.v
+    Info (12023): Found entity 1: newStep4 File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/newStep4.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file newstep3.v
+    Info (12023): Found entity 1: newStep3 File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/newStep3.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file newstep2.v
+    Info (12023): Found entity 1: newStep2 File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/newStep2.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file newstep1.v
+    Info (12023): Found entity 1: newStep1 File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/newStep1.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file instructionregister.v
+    Info (12023): Found entity 1: instructionRegister File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/instructionRegister.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file controlunit.v
+    Info (12023): Found entity 1: controlUnit File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file register.v
+    Info (12023): Found entity 1: register File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/register.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file registerfile.v
+    Info (12023): Found entity 1: registerFile File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/registerFile.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file memory.v
+    Info (12023): Found entity 1: memory File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/memory.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file comparator.v
+    Info (12023): Found entity 1: comparator File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/comparator.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu.v
+    Info (12023): Found entity 1: alu File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file immediategenerator.v
+    Info (12023): Found entity 1: immediateGenerator File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/immediateGenerator.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file board_relprime.v
+    Info (12023): Found entity 1: board_relPrime File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/board_relPrime.v Line: 1
+Info (12127): Elaborating entity "CPU" for the top level hierarchy
+Info (12128): Elaborating entity "newStep4" for hierarchy "newStep4:UUT" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 65
+Info (12128): Elaborating entity "newStep3" for hierarchy "newStep4:UUT|newStep3:UUT" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/newStep4.v Line: 55
+Info (12128): Elaborating entity "newStep2" for hierarchy "newStep4:UUT|newStep3:UUT|newStep2:UUT" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/newStep3.v Line: 52
+Info (12128): Elaborating entity "newStep1" for hierarchy "newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/newStep2.v Line: 44
+Info (12128): Elaborating entity "alu" for hierarchy "newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/newStep1.v Line: 29
+Warning (10764): Verilog HDL warning at alu.v(22): converting signed shift amount to unsigned File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 22
+Warning (10764): Verilog HDL warning at alu.v(23): converting signed shift amount to unsigned File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 23
+Warning (10270): Verilog HDL Case Statement warning at alu.v(16): incomplete case statement has no default case item File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Warning (10240): Verilog HDL Always Construct warning at alu.v(16): inferring latch(es) for variable "ALUOut", which holds its previous value in one or more paths through the always construct File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Info (10041): Inferred latch for "ALUOut[0]" at alu.v(16) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Info (10041): Inferred latch for "ALUOut[1]" at alu.v(16) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Info (10041): Inferred latch for "ALUOut[2]" at alu.v(16) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Info (10041): Inferred latch for "ALUOut[3]" at alu.v(16) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Info (10041): Inferred latch for "ALUOut[4]" at alu.v(16) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Info (10041): Inferred latch for "ALUOut[5]" at alu.v(16) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Info (10041): Inferred latch for "ALUOut[6]" at alu.v(16) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Info (10041): Inferred latch for "ALUOut[7]" at alu.v(16) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Info (10041): Inferred latch for "ALUOut[8]" at alu.v(16) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Info (10041): Inferred latch for "ALUOut[9]" at alu.v(16) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Info (10041): Inferred latch for "ALUOut[10]" at alu.v(16) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Info (10041): Inferred latch for "ALUOut[11]" at alu.v(16) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Info (10041): Inferred latch for "ALUOut[12]" at alu.v(16) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Info (10041): Inferred latch for "ALUOut[13]" at alu.v(16) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Info (10041): Inferred latch for "ALUOut[14]" at alu.v(16) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Info (10041): Inferred latch for "ALUOut[15]" at alu.v(16) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Info (12128): Elaborating entity "register" for hierarchy "newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|register:AReg" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/newStep1.v Line: 37
+Info (12128): Elaborating entity "registerFile" for hierarchy "newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|registerFile:regFile" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/newStep1.v Line: 57
+Info (12128): Elaborating entity "instructionRegister" for hierarchy "newStep4:UUT|newStep3:UUT|newStep2:UUT|instructionRegister:IR" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/newStep2.v Line: 65
+Info (12128): Elaborating entity "immediateGenerator" for hierarchy "newStep4:UUT|newStep3:UUT|newStep2:UUT|immediateGenerator:immGen" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/newStep2.v Line: 72
+Info (12128): Elaborating entity "memory" for hierarchy "newStep4:UUT|newStep3:UUT|memory:memoryModule" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/newStep3.v Line: 63
+Warning (10850): Verilog HDL warning at memory.v(18): number of words (1) in memory file does not match the number of elements in the address range [0:65535] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/memory.v Line: 18
+Info (12128): Elaborating entity "comparator" for hierarchy "newStep4:UUT|comparator:comp" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/newStep4.v Line: 77
+Warning (10240): Verilog HDL Always Construct warning at comparator.v(13): inferring latch(es) for variable "dout", which holds its previous value in one or more paths through the always construct File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/comparator.v Line: 13
+Info (10041): Inferred latch for "dout[0]" at comparator.v(19) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/comparator.v Line: 19
+Info (10041): Inferred latch for "dout[1]" at comparator.v(19) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/comparator.v Line: 19
+Info (12128): Elaborating entity "controlUnit" for hierarchy "controlUnit:UTT" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 108
+Warning (10235): Verilog HDL Always Construct warning at controlUnit.v(247): variable "op" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 247
+Warning (10272): Verilog HDL Case Statement warning at controlUnit.v(276): case item expression covers a value already covered by a previous case item File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 276
+Warning (10270): Verilog HDL Case Statement warning at controlUnit.v(247): incomplete case statement has no default case item File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 247
+Warning (10235): Verilog HDL Always Construct warning at controlUnit.v(304): variable "op" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 304
+Warning (10272): Verilog HDL Case Statement warning at controlUnit.v(333): case item expression covers a value already covered by a previous case item File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 333
+Warning (10270): Verilog HDL Case Statement warning at controlUnit.v(304): incomplete case statement has no default case item File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 304
+Warning (10235): Verilog HDL Always Construct warning at controlUnit.v(353): variable "cmpRst" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 353
+Info (10264): Verilog HDL Case Statement information at controlUnit.v(183): all case item expressions in this case statement are onehot File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 183
+Warning (10240): Verilog HDL Always Construct warning at controlUnit.v(169): inferring latch(es) for variable "ALUOp", which holds its previous value in one or more paths through the always construct File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+Warning (10240): Verilog HDL Always Construct warning at controlUnit.v(169): inferring latch(es) for variable "memAddrSel", which holds its previous value in one or more paths through the always construct File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+Warning (10240): Verilog HDL Always Construct warning at controlUnit.v(169): inferring latch(es) for variable "ALUSrcA", which holds its previous value in one or more paths through the always construct File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+Warning (10240): Verilog HDL Always Construct warning at controlUnit.v(169): inferring latch(es) for variable "ALUSrcB", which holds its previous value in one or more paths through the always construct File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+Warning (10240): Verilog HDL Always Construct warning at controlUnit.v(169): inferring latch(es) for variable "DOrS", which holds its previous value in one or more paths through the always construct File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+Warning (10240): Verilog HDL Always Construct warning at controlUnit.v(169): inferring latch(es) for variable "IRWrite", which holds its previous value in one or more paths through the always construct File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+Warning (10240): Verilog HDL Always Construct warning at controlUnit.v(169): inferring latch(es) for variable "regDataWrite", which holds its previous value in one or more paths through the always construct File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+Warning (10240): Verilog HDL Always Construct warning at controlUnit.v(169): inferring latch(es) for variable "memAddrSet", which holds its previous value in one or more paths through the always construct File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+Warning (10240): Verilog HDL Always Construct warning at controlUnit.v(169): inferring latch(es) for variable "cmpRstReg", which holds its previous value in one or more paths through the always construct File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+Warning (10235): Verilog HDL Always Construct warning at controlUnit.v(486): variable "cmpRstReg" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 486
+Warning (10235): Verilog HDL Always Construct warning at controlUnit.v(494): variable "cmpRstReg" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 494
+Warning (10235): Verilog HDL Always Construct warning at controlUnit.v(502): variable "cmpRstReg" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 502
+Warning (10270): Verilog HDL Case Statement warning at controlUnit.v(483): incomplete case statement has no default case item File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 483
+Warning (10270): Verilog HDL Case Statement warning at controlUnit.v(607): incomplete case statement has no default case item File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 607
+Warning (10240): Verilog HDL Always Construct warning at controlUnit.v(434): inferring latch(es) for variable "next_state", which holds its previous value in one or more paths through the always construct File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+Info (10041): Inferred latch for "next_state.LW3" at controlUnit.v(434) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+Info (10041): Inferred latch for "next_state.JALR2" at controlUnit.v(434) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+Info (10041): Inferred latch for "next_state.TSTWait2" at controlUnit.v(434) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+Info (10041): Inferred latch for "next_state.FETCHWait" at controlUnit.v(434) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+Info (10041): Inferred latch for "next_state.LUIDUMMY" at controlUnit.v(434) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+Info (10041): Inferred latch for "next_state.LUI2" at controlUnit.v(434) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+Info (10041): Inferred latch for "next_state.ALUWriteTwo" at controlUnit.v(434) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+Info (10041): Inferred latch for "next_state.TSTWait" at controlUnit.v(434) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+Info (10041): Inferred latch for "next_state.JALR" at controlUnit.v(434) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+Info (10041): Inferred latch for "next_state.SW" at controlUnit.v(434) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+Info (10041): Inferred latch for "next_state.LWWrite" at controlUnit.v(434) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+Info (10041): Inferred latch for "next_state.LWRead" at controlUnit.v(434) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+Info (10041): Inferred latch for "next_state.MemBase" at controlUnit.v(434) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+Info (10041): Inferred latch for "next_state.BWrite" at controlUnit.v(434) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+Info (10041): Inferred latch for "next_state.BPause" at controlUnit.v(434) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+Info (10041): Inferred latch for "next_state.TST" at controlUnit.v(434) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+Info (10041): Inferred latch for "next_state.ISelect" at controlUnit.v(434) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+Info (10041): Inferred latch for "next_state.ALUWrite" at controlUnit.v(434) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+Info (10041): Inferred latch for "next_state.RALU" at controlUnit.v(434) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+Info (10041): Inferred latch for "next_state.LUI" at controlUnit.v(434) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+Info (10041): Inferred latch for "next_state.DECODE" at controlUnit.v(434) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+Info (10041): Inferred latch for "next_state.FETCH" at controlUnit.v(434) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+Info (10041): Inferred latch for "cmpRstReg[0]" at controlUnit.v(169) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+Info (10041): Inferred latch for "cmpRstReg[1]" at controlUnit.v(169) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+Info (10041): Inferred latch for "memAddrSet" at controlUnit.v(169) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+Info (10041): Inferred latch for "regDataWrite[0]" at controlUnit.v(169) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+Info (10041): Inferred latch for "regDataWrite[1]" at controlUnit.v(169) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+Info (10041): Inferred latch for "regDataWrite[2]" at controlUnit.v(169) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+Info (10041): Inferred latch for "IRWrite" at controlUnit.v(169) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+Info (10041): Inferred latch for "DOrS" at controlUnit.v(169) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+Info (10041): Inferred latch for "ALUSrcB" at controlUnit.v(169) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+Info (10041): Inferred latch for "ALUSrcA" at controlUnit.v(169) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+Info (10041): Inferred latch for "memAddrSel" at controlUnit.v(169) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+Info (10041): Inferred latch for "ALUOp[0]" at controlUnit.v(169) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+Info (10041): Inferred latch for "ALUOp[1]" at controlUnit.v(169) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+Info (10041): Inferred latch for "ALUOp[2]" at controlUnit.v(169) File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+Warning (14026): LATCH primitive "newStep4:UUT|alu:PCAdder|ALUOut[0]" is permanently enabled File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Warning (14026): LATCH primitive "newStep4:UUT|alu:PCAdder|ALUOut[1]" is permanently enabled File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Warning (14026): LATCH primitive "newStep4:UUT|alu:PCAdder|ALUOut[2]" is permanently enabled File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Warning (14026): LATCH primitive "newStep4:UUT|alu:PCAdder|ALUOut[3]" is permanently enabled File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Warning (14026): LATCH primitive "newStep4:UUT|alu:PCAdder|ALUOut[4]" is permanently enabled File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Warning (14026): LATCH primitive "newStep4:UUT|alu:PCAdder|ALUOut[5]" is permanently enabled File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Warning (14026): LATCH primitive "newStep4:UUT|alu:PCAdder|ALUOut[6]" is permanently enabled File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Warning (14026): LATCH primitive "newStep4:UUT|alu:PCAdder|ALUOut[7]" is permanently enabled File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Warning (14026): LATCH primitive "newStep4:UUT|alu:PCAdder|ALUOut[8]" is permanently enabled File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Warning (14026): LATCH primitive "newStep4:UUT|alu:PCAdder|ALUOut[9]" is permanently enabled File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Warning (14026): LATCH primitive "newStep4:UUT|alu:PCAdder|ALUOut[10]" is permanently enabled File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Warning (14026): LATCH primitive "newStep4:UUT|alu:PCAdder|ALUOut[11]" is permanently enabled File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Warning (14026): LATCH primitive "newStep4:UUT|alu:PCAdder|ALUOut[12]" is permanently enabled File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Warning (14026): LATCH primitive "newStep4:UUT|alu:PCAdder|ALUOut[13]" is permanently enabled File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Warning (14026): LATCH primitive "newStep4:UUT|alu:PCAdder|ALUOut[14]" is permanently enabled File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Warning (14026): LATCH primitive "newStep4:UUT|alu:PCAdder|ALUOut[15]" is permanently enabled File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/processorDatapath.ram0_memory_e411fb78.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (276021): Created node "newStep4:UUT|newStep3:UUT|memory:memoryModule|ram" as a single-port RAM by generating altsyncram megafunction to implement register logic. Power-up values at the outputs of the RAM are different from the original design. File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/memory.v Line: 13
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "newStep4:UUT|newStep3:UUT|memory:memoryModule|ram_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to SINGLE_PORT
+        Info (286033): Parameter WIDTH_A set to 16
+        Info (286033): Parameter WIDTHAD_A set to 16
+        Info (286033): Parameter NUMWORDS_A set to 65536
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/processorDatapath.ram0_memory_e411fb78.hdl.mif
+Info (12130): Elaborated megafunction instantiation "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0"
+Info (12133): Instantiated megafunction "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "SINGLE_PORT"
+    Info (12134): Parameter "WIDTH_A" = "16"
+    Info (12134): Parameter "WIDTHAD_A" = "16"
+    Info (12134): Parameter "NUMWORDS_A" = "65536"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/processorDatapath.ram0_memory_e411fb78.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_g7a1.tdf
+    Info (12023): Found entity 1: altsyncram_g7a1 File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 33
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_rsa.tdf
+    Info (12023): Found entity 1: decode_rsa File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/decode_rsa.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_k8a.tdf
+    Info (12023): Found entity 1: decode_k8a File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/decode_k8a.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_qob.tdf
+    Info (12023): Found entity 1: mux_qob File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/mux_qob.tdf Line: 22
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a64" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 1518
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a65" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 1541
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a66" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 1564
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a67" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 1587
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a68" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 1610
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a69" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 1633
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a70" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 1656
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a71" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 1679
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a72" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 1702
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a73" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 1725
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a74" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 1748
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a75" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 1771
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a76" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 1794
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a77" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 1817
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a78" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 1840
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a79" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 1863
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a80" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 1886
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a81" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 1909
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a82" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 1932
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a83" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 1955
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a84" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 1978
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a85" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2001
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a86" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2024
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a87" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2047
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a88" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2070
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a89" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2093
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a90" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2116
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a91" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2139
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a92" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2162
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a93" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2185
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a94" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2208
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a95" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2231
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a96" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2254
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a97" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2277
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a98" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2300
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a99" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2323
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a100" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2346
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a101" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2369
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a102" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2392
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a103" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2415
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a104" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2438
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a105" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2461
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a106" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2484
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a107" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2507
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a108" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2530
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a109" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2553
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a110" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2576
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a111" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2599
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a112" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2622
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a113" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2645
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a114" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2668
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a115" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2691
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a116" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2714
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a117" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2737
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a118" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2760
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a119" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2783
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a120" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2806
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a121" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2829
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a122" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2852
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a123" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2875
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a124" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2898
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a125" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2921
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a126" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2944
+        Warning (14320): Synthesized away node "newStep4:UUT|newStep3:UUT|memory:memoryModule|altsyncram:ram_rtl_0|altsyncram_g7a1:auto_generated|ram_block1a127" File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/db/altsyncram_g7a1.tdf Line: 2967
+Warning (13012): Latch controlUnit:UTT|next_state.SW_711 has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_opcode[0] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 110
+Warning (13012): Latch newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[15] has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALUOpReg[1] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 110
+Warning (13012): Latch controlUnit:UTT|memAddrSel has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlUnit:UTT|current_state.LWRead File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 97
+Warning (13012): Latch newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[14] has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALUOpReg[1] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 110
+Warning (13012): Latch newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[13] has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALUOpReg[0] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 110
+Warning (13012): Latch newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[12] has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALUOpReg[0] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 110
+Warning (13012): Latch newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[11] has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALUOpReg[1] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 110
+Warning (13012): Latch newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[10] has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALUOpReg[1] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 110
+Warning (13012): Latch newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[9] has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALUOpReg[1] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 110
+Warning (13012): Latch newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[8] has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALUOpReg[1] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 110
+Warning (13012): Latch newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[7] has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALUOpReg[0] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 110
+Warning (13012): Latch newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[6] has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALUOpReg[0] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 110
+Warning (13012): Latch newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[5] has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALUOpReg[0] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 110
+Warning (13012): Latch newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[4] has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALUOpReg[0] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 110
+Warning (13012): Latch newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[3] has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALUOpReg[0] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 110
+Warning (13012): Latch newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[2] has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALUOpReg[0] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 110
+Warning (13012): Latch newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[1] has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALUOpReg[1] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 110
+Warning (13012): Latch controlUnit:UTT|IRWrite has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 46
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlUnit:UTT|current_state.FETCH File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 97
+Warning (13012): Latch controlUnit:UTT|next_state.MemBase_752 has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_opcode[0] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 110
+Warning (13012): Latch controlUnit:UTT|next_state.BWrite_767 has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_opcode[1] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 110
+Warning (13012): Latch controlUnit:UTT|ALUOp[0] has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlUnit:UTT|WideOr0 File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 183
+Warning (13012): Latch controlUnit:UTT|ALUOp[1] has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlUnit:UTT|WideOr0 File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 183
+Warning (13012): Latch controlUnit:UTT|ALUOp[2] has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlUnit:UTT|WideOr0 File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 183
+Warning (13012): Latch controlUnit:UTT|next_state.LWRead_739 has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_opcode[0] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 110
+Warning (13012): Latch controlUnit:UTT|next_state.TSTWait_681 has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_opcode[1] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 110
+Warning (13012): Latch controlUnit:UTT|regDataWrite[1] has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlUnit:UTT|current_state.MemBase File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 97
+Warning (13012): Latch controlUnit:UTT|regDataWrite[0] has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlUnit:UTT|current_state.LWWrite File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 97
+Warning (13012): Latch newStep4:UUT|newStep3:UUT|newStep2:UUT|newStep1:UUT|alu:ALU|ALUOut[0] has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/alu.v Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALUOpReg[1] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 110
+Warning (13012): Latch controlUnit:UTT|regDataWrite[2] has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 169
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlUnit:UTT|current_state.TST File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 97
+Warning (13012): Latch controlUnit:UTT|next_state.JALR_696 has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_opcode[2] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 110
+Warning (13012): Latch controlUnit:UTT|ALUSrcB has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 39
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlUnit:UTT|current_state.DECODE File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 97
+Warning (13012): Latch controlUnit:UTT|ALUSrcA has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 38
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controlUnit:UTT|current_state.LUI File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 97
+Warning (13012): Latch controlUnit:UTT|next_state.LUI_845 has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_opcode[0] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 110
+Warning (13012): Latch controlUnit:UTT|next_state.ISelect_806 has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_opcode[0] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 110
+Warning (13012): Latch controlUnit:UTT|next_state.RALU_832 has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_opcode[0] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 110
+Warning (13012): Latch controlUnit:UTT|next_state.TST_793 has unsafe behavior File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/controlUnit.v Line: 434
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_opcode[0] File: C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/CPU.v Line: 110
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 5 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/output_files/processorDatapath.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 1470 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 18 input pins
+    Info (21059): Implemented 16 output pins
+    Info (21061): Implemented 1372 logic cells
+    Info (21064): Implemented 64 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 186 warnings
+    Info: Peak virtual memory: 4822 megabytes
+    Info: Processing ended: Mon May 22 19:14:06 2023
+    Info: Elapsed time: 00:00:21
+    Info: Total CPU time (on all processors): 00:00:38
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/mcdanibj/Desktop/rhit-csse232-2223c-project-q-2223c-01/implementation/QuartusProject/output_files/processorDatapath.map.smsg.
+
+

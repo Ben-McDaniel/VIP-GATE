@@ -1,0 +1,47 @@
+module memory
+#(parameter DATA_WIDTH=16, parameter ADDR_WIDTH=16)
+(
+	input signed [(DATA_WIDTH-1):0] data,
+	input [(ADDR_WIDTH-1):0] addr,
+	input signed [(DATA_WIDTH-1):0] inputWire,
+	input we, clk, reset,
+	output reg signed [(DATA_WIDTH-1):0] q,
+	output reg signed [(DATA_WIDTH-1):0] outputWire
+);
+
+	// Declare the RAM variable
+	reg [DATA_WIDTH-1:0] ram[0:2**ADDR_WIDTH-1];
+
+	// Variable to hold the registered read address
+	reg [ADDR_WIDTH-1:0] addr_reg;
+	initial begin
+		$readmemh("memory.txt", ram);
+	end
+	always @ (negedge clk)
+	begin
+		// Write
+		if (we) begin
+//			$display("addr %h", addr);
+			if(addr == 24577) begin
+				outputWire = data;
+			end
+			ram[addr] <= data;
+		end
+
+		addr_reg <= addr;
+	end
+
+	// Continuous assignment implies read returns NEW data.
+	// This is the natural behavior of the TriMatrix memory
+	// blocks in Single Port mode. 
+	always @ (*)
+	begin
+		if(addr == 24576) begin
+			q = inputWire;
+		end
+		else begin
+			q = ram[addr_reg];
+		end
+	end
+
+endmodule

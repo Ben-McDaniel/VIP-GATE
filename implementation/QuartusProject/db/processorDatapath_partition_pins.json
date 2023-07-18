@@ -1,0 +1,145 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "outputWire[0]",
+					"strict" : false
+				},
+				{
+					"name" : "outputWire[1]",
+					"strict" : false
+				},
+				{
+					"name" : "outputWire[2]",
+					"strict" : false
+				},
+				{
+					"name" : "outputWire[3]",
+					"strict" : false
+				},
+				{
+					"name" : "outputWire[4]",
+					"strict" : false
+				},
+				{
+					"name" : "outputWire[5]",
+					"strict" : false
+				},
+				{
+					"name" : "outputWire[6]",
+					"strict" : false
+				},
+				{
+					"name" : "outputWire[7]",
+					"strict" : false
+				},
+				{
+					"name" : "outputWire[8]",
+					"strict" : false
+				},
+				{
+					"name" : "outputWire[9]",
+					"strict" : false
+				},
+				{
+					"name" : "outputWire[10]",
+					"strict" : false
+				},
+				{
+					"name" : "outputWire[11]",
+					"strict" : false
+				},
+				{
+					"name" : "outputWire[12]",
+					"strict" : false
+				},
+				{
+					"name" : "outputWire[13]",
+					"strict" : false
+				},
+				{
+					"name" : "outputWire[14]",
+					"strict" : false
+				},
+				{
+					"name" : "outputWire[15]",
+					"strict" : false
+				},
+				{
+					"name" : "CLK",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "inputWire[8]",
+					"strict" : false
+				},
+				{
+					"name" : "inputWire[0]",
+					"strict" : false
+				},
+				{
+					"name" : "inputWire[14]",
+					"strict" : false
+				},
+				{
+					"name" : "inputWire[13]",
+					"strict" : false
+				},
+				{
+					"name" : "inputWire[12]",
+					"strict" : false
+				},
+				{
+					"name" : "inputWire[15]",
+					"strict" : false
+				},
+				{
+					"name" : "inputWire[9]",
+					"strict" : false
+				},
+				{
+					"name" : "inputWire[1]",
+					"strict" : false
+				},
+				{
+					"name" : "inputWire[10]",
+					"strict" : false
+				},
+				{
+					"name" : "inputWire[2]",
+					"strict" : false
+				},
+				{
+					"name" : "inputWire[11]",
+					"strict" : false
+				},
+				{
+					"name" : "inputWire[3]",
+					"strict" : false
+				},
+				{
+					"name" : "inputWire[7]",
+					"strict" : false
+				},
+				{
+					"name" : "inputWire[6]",
+					"strict" : false
+				},
+				{
+					"name" : "inputWire[5]",
+					"strict" : false
+				},
+				{
+					"name" : "inputWire[4]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
